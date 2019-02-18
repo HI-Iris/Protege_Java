@@ -6,8 +6,9 @@ public class Main {
         boolean flag = false;
         boolean againFlag;
         Utility myUtility =new Utility();
-        int mySalary;
-        int myYear;
+        int mySalary = 0;
+        int myYear = 0;
+        boolean isNum;
         do{
             System.out.println("Welcome to the magic year calculator!");
             Scanner myObj = new Scanner(System.in);
@@ -15,12 +16,26 @@ public class Main {
             String name = myObj.nextLine();
             System.out.print("Please enter your surname:");
             String surname = myObj.nextLine();
-            System.out.print("Please enter your annual salary:");
-            int salary = myObj.nextInt();
-            System.out.print("Please enter your work start year:");
-            int year = myObj.nextInt();
-            mySalary = myUtility.monthSalary(salary);
-            myYear =myUtility.magicYear(year);
+            do{
+                System.out.print("Please enter your annual salary:");
+                String salary = myObj.nextLine();
+                isNum = myUtility.isNum(salary);
+                if(isNum){
+                    mySalary = myUtility.monthSalary(Integer.parseInt(salary));
+                }
+            }while (!isNum);
+
+            do{
+                System.out.print("Please enter your work start year:");
+                String year = myObj.nextLine();
+                isNum = myUtility.isNum(year);
+                if(isNum){
+                    myYear =myUtility.magicYear(Integer.parseInt(year));
+                }
+            }while (!isNum);
+
+
+
             System.out.println("Your magic age details are:");
             System.out.println(
                     String.format("Name: %s %s", name, surname ));
