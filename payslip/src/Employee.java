@@ -10,10 +10,18 @@ public class Employee {
         this.salary = salary;
         this.superRate = superRate;
     }
+
     public String getName() {
         return name;
     }
+
     public String getSurname() {
         return surname;
     }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public int getSuperRate() { return superRate; }
 }
