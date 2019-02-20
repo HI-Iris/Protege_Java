@@ -1,5 +1,5 @@
-public class Validation {
-    public boolean isNum(String strNum) {
+class Validation {
+    static boolean isNum(String strNum) {
         try {
             Integer.parseInt(strNum);
         } catch (Exception excp) {
@@ -8,7 +8,7 @@ public class Validation {
         return true;
     }
 
-    public boolean isDate(String strDate) {
+    static boolean isDate(String strDate) {
         int dayOfMonth;
         String Month;
         try {
@@ -26,23 +26,14 @@ public class Validation {
             case "AUG":
             case "OCT":
             case "DEC":
-                if (1 <= dayOfMonth && dayOfMonth <= 31) {
-                    return true;
-                }
-                return false;
+                return 1 <= dayOfMonth && dayOfMonth <= 31;
             case "APR":
             case "JUN":
             case "SEP":
             case "NOV":
-                if (1 <= dayOfMonth && dayOfMonth <= 30) {
-                    return true;
-                }
-                return false;
+                return 1 <= dayOfMonth && dayOfMonth <= 30;
             case "FEB":
-                if (1 <= dayOfMonth && dayOfMonth <= 29) {
-                    return true;
-                }
-                return false;
+                return 1 <= dayOfMonth && dayOfMonth <= 29;
             default:
                 return false;
         }
