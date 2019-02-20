@@ -1,8 +1,8 @@
-public class Utility {
+public class Validation {
     public boolean isNum(String strNum) {
         try {
-            int d = Integer.parseInt(strNum);
-        } catch (NumberFormatException | NullPointerException nfe) {
+            Integer.parseInt(strNum);
+        } catch (Exception excp) {
             return false;
         }
         return true;
@@ -19,12 +19,21 @@ public class Utility {
             return false;
         }
         switch (Month) {
-            case "JAN": case "MAR": case "MAY": case "JUL": case "AUG": case "OCT": case "DEC":
+            case "JAN":
+            case "MAR":
+            case "MAY":
+            case "JUL":
+            case "AUG":
+            case "OCT":
+            case "DEC":
                 if (1 <= dayOfMonth && dayOfMonth <= 31) {
                     return true;
                 }
                 return false;
-            case "APR": case "JUN": case "SEP": case "NOV":
+            case "APR":
+            case "JUN":
+            case "SEP":
+            case "NOV":
                 if (1 <= dayOfMonth && dayOfMonth <= 30) {
                     return true;
                 }
@@ -34,8 +43,10 @@ public class Utility {
                     return true;
                 }
                 return false;
+            default:
+                return false;
         }
-        return true;
+
 
     }
 }
