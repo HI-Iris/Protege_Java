@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Validation myValidation = new Validation();
         PayrollGenerator myPayrollGenerator = new PayrollGenerator();
         int annualSalary = 0;
         int superRate = 0;
@@ -25,21 +24,21 @@ public class Main {
         do {
             System.out.print("Please enter your annual salary:");
             String salaryStr = userInput.nextLine();
-            isNum = myValidation.isNum(salaryStr);
+            isNum = Validation.isNum(salaryStr);
             if (isNum) {
                 annualSalary = Integer.parseInt(salaryStr);
-                grossIncome = myPayrollGenerator.grossIncome(annualSalary);
-                incomeTax = myPayrollGenerator.incomeTax(annualSalary);
+                grossIncome = myPayrollGenerator.getGrossIncome(annualSalary);
+                incomeTax = myPayrollGenerator.getIncomeTax(annualSalary);
             }
         } while (!isNum);
 
         do {
             System.out.print("Please enter your super rate:");
             String superRateStr = userInput.nextLine();
-            isNum = myValidation.isNum(superRateStr);
+            isNum = Validation.isNum(superRateStr);
             if (isNum) {
                 superRate = Integer.parseInt(superRateStr);
-                superAmount = myPayrollGenerator.superAmount(grossIncome, superRate);
+                superAmount = myPayrollGenerator.getSuperAmount(grossIncome, superRate);
             }
         } while (!isNum);
 
@@ -48,13 +47,13 @@ public class Main {
         do {
             System.out.print("Please enter your payment start date(e.g. 3 Mar):");
             payStartDate = userInput.nextLine();
-            isDate = myValidation.isDate(payStartDate);
+            isDate = Validation.isDate(payStartDate);
         } while (!isDate);
 
         do {
             System.out.print("Please enter your payment end date(e.g. 23 Mar):");
             payEndDate = userInput.nextLine();
-            isDate = myValidation.isDate(payEndDate);
+            isDate = Validation.isDate(payEndDate);
         }
         while (!isDate);
 
@@ -63,7 +62,7 @@ public class Main {
         System.out.println(
                 String.format("Name: %s %s", emp.getName(), emp.getSurname()));
         System.out.println(
-                String.format("Pay Period: %s %s", payStartDate, payEndDate));
+                String.format("Pay Period: %s - %s", payStartDate, payEndDate));
         System.out.println(
                 String.format("Gross Income: %s", grossIncome));
         System.out.println(
