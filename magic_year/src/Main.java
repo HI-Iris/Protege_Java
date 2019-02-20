@@ -26,9 +26,7 @@ public class Main {
                     String.format("Monthly Salary: %d", mySalary));
             System.out.println(
                     String.format("Magic Year: %d", myYearStartWork));
-
             System.out.print("\nDo you want to calculate again?(Y/N): ");
-
             playAgainFlag = playAgainInputCheck(playAgainFlag, userInput);
         }
         while (playAgainFlag);
