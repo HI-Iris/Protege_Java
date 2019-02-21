@@ -1,7 +1,7 @@
 import junit.framework.TestCase;
 
 public class CalculatorTest extends TestCase {
-    Calculator testCalculator = new Calculator();
+    private Calculator testCalculator = new Calculator();
 
     public void testMagicYear() {
         int yearStartWork = 0;
