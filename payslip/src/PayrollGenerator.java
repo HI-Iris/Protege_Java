@@ -1,17 +1,17 @@
 class PayrollGenerator {
-    private static final int NUM_OF_MONTH = 12;
-    private double grossTax;
-    private int incomeTax;
+    private static final int PERCENTAGE = 100;
+    private static final float NUM_OF_MONTH = 12;
 
     int getGrossIncome(int salary) {
         return Math.round(salary / NUM_OF_MONTH);
     }
 
     int getSuperAmount(int grossIncome, int superRate) {
-        return Math.round(grossIncome * superRate / 100);
+        return Math.round(grossIncome * superRate / PERCENTAGE);
     }
 
     int getIncomeTax(int annualSalary) {
+        double grossTax;
         if (annualSalary <= 18200) {
             grossTax = 0;
         } else if (annualSalary <= 37000) {
@@ -23,7 +23,6 @@ class PayrollGenerator {
         } else {
             grossTax = 54232 + Math.floor((annualSalary - 180000) * 0.45);
         }
-        incomeTax = (int) Math.ceil(grossTax / 12);
-        return incomeTax;
+        return (int) Math.round(grossTax / 12);
     }
 }
