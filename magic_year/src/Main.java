@@ -5,8 +5,6 @@ public class Main {
     public static void main(String[] args) {
         boolean playAgainFlag = false;
         Calculator myCalculator = new Calculator();
-        int mySalary = 0;
-        int myYearStartWork = 0;
 
         do {
             System.out.println("Welcome to the magic year calculator!\n");
@@ -16,8 +14,8 @@ public class Main {
             System.out.print("Please enter your surname:");
             String surname = userInput.nextLine();
 
-            mySalary = getMySalary(myCalculator, mySalary, userInput);
-            myYearStartWork = getMyYearStartWork(myCalculator, myYearStartWork, userInput);
+            int mySalary = getMySalary(myCalculator, userInput);
+            int myYearStartWork = getMyYearStartWork(myCalculator, userInput);
 
             System.out.println("\nYour magic age details are:");
             System.out.println(
@@ -30,16 +28,13 @@ public class Main {
             playAgainFlag = playAgainInputCheck(playAgainFlag, userInput);
         }
         while (playAgainFlag);
-
-
     }
 
     private static boolean playAgainInputCheck(boolean playAgainFlag, Scanner userInput) {
         boolean playAgainInputFlag;
         do {
             String input = userInput.next();
-            String inputUpper = String.format(input.toUpperCase());
-
+            String inputUpper = input.toUpperCase();
             switch (inputUpper) {
                 case "Y":
                     playAgainFlag = true;
@@ -58,30 +53,22 @@ public class Main {
         return playAgainFlag;
     }
 
-    private static int getMyYearStartWork(Calculator myCalculator, int myYearStartWork, Scanner userInput) {
-        boolean isNum;
+    private static int getMyYearStartWork(Calculator myCalculator, Scanner userInput) {
+        String yearStartWork;
         do {
             System.out.print("Please enter your work start year:");
-            String yearStartWork = userInput.nextLine();
-            isNum = Validation.isNum(yearStartWork);
-            if (isNum) {
-                myYearStartWork = myCalculator.magicYear(Integer.parseInt(yearStartWork));
-            }
-        } while (!isNum);
-        return myYearStartWork;
+            yearStartWork = userInput.nextLine();
+        } while (!Validation.isNum(yearStartWork));
+        return myCalculator.magicYear(Integer.parseInt(yearStartWork));
     }
 
-    private static int getMySalary(Calculator myCalculator, int mySalary, Scanner userInput) {
-        boolean isNum;
+    private static int getMySalary(Calculator myCalculator, Scanner userInput) {
+        String salary;
         do {
             System.out.print("Please enter your annual salary:");
-            String salary = userInput.nextLine();
-            isNum = Validation.isNum(salary);
-            if (isNum) {
-                mySalary = myCalculator.monthSalary(Integer.parseInt(salary));
-            }
-        } while (!isNum);
-        return mySalary;
+            salary = userInput.nextLine();
+        } while (!Validation.isNum(salary));
+        return myCalculator.monthSalary(Integer.parseInt(salary));
     }
 }
 
