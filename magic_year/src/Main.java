@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         boolean playAgainFlag = false;
         Calculator myCalculator = new Calculator();
-        int mySalary = 0;
+        int mySalary = 1;
         int myYearStartWork = 0;
 
         do {
