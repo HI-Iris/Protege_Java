@@ -3,12 +3,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        boolean playAgainFlag = false;
+        boolean playAgainFlag;
         do {
             User myUser = getUserDetailFromInput();
             System.out.println(myUser.toString());
-            System.out.print("\nDo you want to calculate again?(Y/N): ");
-            playAgainFlag = playAgainInputCheck(playAgainFlag, new Scanner(System.in));
+            playAgainFlag = playAgainCheck();
         }
         while (playAgainFlag);
     }
@@ -38,28 +37,34 @@ public class Main {
         return new User(name, surname, monthSalary, magicYear);
     }
 
-    private static boolean playAgainInputCheck(boolean playAgainFlag, Scanner userInput) {
-        boolean playAgainInputFlag;
+
+    private static boolean getValidFlagFromUserInput(Scanner userInput) {
+        boolean playAgainFlag;
+        boolean isFlagValid;
         do {
-            String input = userInput.next();
-            String inputUpper = input.toUpperCase();
-            switch (inputUpper) {
+            switch (userInput.nextLine().toUpperCase()) {
                 case "Y":
+                case "YES":
                     playAgainFlag = true;
-                    playAgainInputFlag = false;
+                    isFlagValid = true;
                     break;
                 case "N":
+                case "NO":
                     playAgainFlag = false;
-                    playAgainInputFlag = false;
-                    System.out.println("See you later!");
+                    isFlagValid = true;
                     break;
                 default:
-                    System.out.println("Sorry, I don't understand, please type Y or N");
-                    playAgainInputFlag = true;
+                    System.out.println("Sorry, I don't understand, please type in 'Y' or 'N'");
+                    playAgainFlag = false;
+                    isFlagValid = false;
             }
-        } while (playAgainInputFlag);
+        } while (!isFlagValid);
         return playAgainFlag;
     }
-}
 
+    private static boolean playAgainCheck() {
+        System.out.println("Do you want to calculate again?");
+        return getValidFlagFromUserInput(new Scanner(System.in));
+    }
+}
 
