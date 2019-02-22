@@ -18,12 +18,4 @@ class Employee {
     String getSurname() {
         return surname;
     }
-
-    int getSalary() {
-        return salary;
-    }
-
-    int getSuperRate() {
-        return superRate;
-    }
 }
