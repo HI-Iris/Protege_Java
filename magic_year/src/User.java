@@ -10,28 +10,8 @@ class User {
         this.monthSalary = monthSalary;
         this.magicYear = magicYear;
     }
-    String getSurname() {
-        return surname;
-    }
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-    String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    int getMonthSalary() {
-        return monthSalary;
-    }
-    public void setMonthSalary(int monthSalary) {
-        this.monthSalary = monthSalary;
-    }
-    int getMagicYear() {
-        return magicYear;
-    }
-    public void setMagicYear(int magicYear) {
-        this.magicYear = magicYear;
+
+    public String toString() {
+        return "\nYour magic age details are:\nName: " + this.name + " " + this.surname + "\nMonthly salary: " + this.monthSalary + "\nMagic year: " + this.magicYear;
     }
 }
