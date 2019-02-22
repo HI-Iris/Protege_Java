@@ -12,6 +12,7 @@ class User {
     }
 
     public String toString() {
-        return "\nYour magic age details are:\nName: " + this.name + " " + this.surname + "\nMonthly salary: " + this.monthSalary + "\nMagic year: " + this.magicYear;
+        return "\nYour magic age details are:\nName: " + this.name + " " + this.surname + "\nMonthly salary: "
+                + this.monthSalary + "\nMagic year: " + this.magicYear;
     }
 }
