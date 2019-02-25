@@ -1,18 +1,29 @@
 class User {
     private String name;
     private String surname;
-    private int monthSalary;
-    private int magicYear;
+    private int annualSalary;
+    private int yearStartWork;
 
-    User(String name, String surname, int monthSalary, int magicYear) {
+    User(String name, String surname, int annualSalary, int yearStartWork) {
         this.name = name;
         this.surname = surname;
-        this.monthSalary = monthSalary;
-        this.magicYear = magicYear;
+        this.annualSalary = annualSalary;
+        this.yearStartWork = yearStartWork;
     }
 
-    public String toString() {
-        return "\nYour magic age details are:\nName: " + this.name + " " + this.surname + "\nMonthly salary: "
-                + this.monthSalary + "\nMagic year: " + this.magicYear;
+    public int getAnnualSalary() {
+        return annualSalary;
+    }
+
+    public int getYearStartWork() {
+        return yearStartWork;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
     }
 }
