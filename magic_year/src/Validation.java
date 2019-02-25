@@ -8,4 +8,17 @@ class Validation {
             return false;
         }
     }
+
+    static boolean isFlag(String userInput) {
+        switch (userInput.toUpperCase()) {
+            case "Y":
+            case "YES":
+            case "N":
+            case "NO":
+                return true;
+            default:
+                System.out.println("Sorry, I don't understand, please type in 'Y' or 'N': ");
+                return false;
+        }
+    }
 }
