@@ -1,6 +1,6 @@
 class Validation {
 
-    static boolean isValid(String userInput, String regExp){
+    static boolean isValid(String userInput, String regExp) {
         return userInput.matches(regExp);
     }
 
@@ -22,19 +22,15 @@ class Validation {
         }
     }
 
-    static boolean isCoordInputFinished(String userInput) {
-        return userInput.equalsIgnoreCase("Q");
-    }
-
-    static boolean isCoordInRange(String userInput, int numOfRows, int numOfColumns) {
-            String[] coords = userInput.split(" ");
-            int rowFromInput = Integer.parseInt(coords[0]);
-            int colunmFromInput = Integer.parseInt(coords[1]);
-            if (rowFromInput < numOfRows && colunmFromInput < numOfColumns) return true;
-            else {
-                System.out.println("Sorry, the coordinate you have entered is out of range.");
-                return false;
-            }
+    static boolean isCoordsInRange(String userInput, int numOfRows, int numOfColumns) {
+        String[] coords = userInput.split(" ");
+        int rowFromInput = Integer.parseInt(coords[0]);
+        int colunmFromInput = Integer.parseInt(coords[1]);
+        if (rowFromInput < numOfRows && colunmFromInput < numOfColumns) return true;
+        else {
+            System.out.println("Sorry, the coordinate you have entered is out of range.");
+            return false;
+        }
 
 
     }
