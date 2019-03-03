@@ -6,7 +6,7 @@ class IDK {
         String userInput;
         do {
             userInput = new Scanner(System.in).nextLine();
-        } while (!Validation.isValidBoardSize(userInput));
+        } while (!Validation.isValid(userInput, RegExp.VALID_BOARD_SIZE));
         return userInput;
     }
 
@@ -19,7 +19,7 @@ class IDK {
     }
 
     static void printCurrentBoard(Board myBoard) {
-        System.out.println("\n------------------------------------\n");
+        System.out.println("------------------------------------\n");
         for (int x = 0; x < myBoard.getNumOfRows(); x++) {
             for (int y = 0; y < myBoard.getNumOfColumns(); y++) {
                 System.out.print(myBoard.getCells()[x][y].status + "  ");
@@ -33,17 +33,17 @@ class IDK {
         String userInput = new Scanner(System.in).nextLine();
         int numOfRows = myBoard.getNumOfRows();
         int numOfColumns = myBoard.getNumOfColumns();
-        Cell[][] cells = new Cell[numOfRows][numOfColumns];
+        Cell[][] cells = myBoard.getCells();
         do {
-            if ((Validation.isValidCoord(userInput)) && (Validation.isCoordInRange(userInput, numOfRows, numOfColumns))) {
+            if ((Validation.isValid(userInput, RegExp.VALID_COORDS)) && (Validation.isCoordsInRange(userInput, numOfRows, numOfColumns))) {
                 String[] coords = userInput.split(" ");
                 int rowIndex = Integer.parseInt(coords[0]);
                 int columnIndex = Integer.parseInt(coords[1]);
                 cells[rowIndex][columnIndex] = Cell.live;
             }
             userInput = new Scanner(System.in).nextLine();
-        } while (!Validation.isCoordInputFinished(userInput));
-        return myBoard;
+        } while (!Validation.isValid(userInput, RegExp.VALID_QUIT_CMD));
+        return new Board(cells);
     }
 
     static int getTheNumOfLiveNeighbour(Cell[][] currentCell, int x, int y) {
