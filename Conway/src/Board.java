@@ -17,6 +17,7 @@ class Board {
     Board(Cell[][] cells) {
         this.numOfRows = cells.length;
         this.numOfColumns = cells[0].length;
+        this.cells = cells;
     }
 
     Cell[][] getCells() {
