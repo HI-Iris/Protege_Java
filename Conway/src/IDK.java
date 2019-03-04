@@ -18,22 +18,22 @@ class IDK {
         return new Board(numOfRows, numOfColumns);
     }
 
-    static void printCurrentBoard(Board myBoard) {
+    static void printCurrentBoard(Board currentBoard) {
         System.out.println("------------------------------------\n");
-        for (int x = 0; x < myBoard.getNumOfRows(); x++) {
-            for (int y = 0; y < myBoard.getNumOfColumns(); y++) {
-                System.out.print(myBoard.getCells()[x][y].status + "  ");
+        for (int x = 0; x < currentBoard.getNumOfRows(); x++) {
+            for (int y = 0; y < currentBoard.getNumOfColumns(); y++) {
+                System.out.print(currentBoard.getCells()[x][y].status + "  ");
             }
             System.out.println();
         }
     }
 
-    static Board initialBoardByUserInput(Board myBoard) {
+    static Board initialBoardByUserInput(Board currentBoard) {
         System.out.println("\nPlease enter the coords (x y) of the live ceil to set the initial state of the world (e.g. 0 0), and enter 'Q' to finish: ");
         String userInput = new Scanner(System.in).nextLine();
-        int numOfRows = myBoard.getNumOfRows();
-        int numOfColumns = myBoard.getNumOfColumns();
-        Cell[][] cells = myBoard.getCells();
+        int numOfRows = currentBoard.getNumOfRows();
+        int numOfColumns = currentBoard.getNumOfColumns();
+        Cell[][] cells = currentBoard.getCells();
         do {
             if ((Validation.isValid(userInput, RegExp.VALID_COORDS)) && (Validation.isCoordsInRange(userInput, numOfRows, numOfColumns))) {
                 String[] coords = userInput.split(" ");
@@ -46,25 +46,62 @@ class IDK {
         return new Board(cells);
     }
 
-    static int getTheNumOfLiveNeighbour(Cell[][] currentCell, int x, int y) {
+    static int getNumOfLiveNeighbourOfCurrentCell(Cell[][] currentCell, int xIndex, int yIndex) {
         int numOfLiveNeighbour = 0;
-        if ((currentCell[x - 1][y].name().equals("live")) && (x - 1 >= 0)) {
+        if ((xIndex - 1 >= 0) && (currentCell[xIndex - 1][yIndex].name().equals("live"))) {
             numOfLiveNeighbour += 1;
-        } else if ((currentCell[x + 1][y].name().equals("live")) && (x + 1 < currentCell.length)) {
+        }
+        if ((xIndex + 1 < currentCell.length) && (currentCell[xIndex + 1][yIndex].name().equals("live"))) {
             numOfLiveNeighbour += 1;
-        } else if ((currentCell[x][y - 1].name().equals("live")) && (y - 1 >= 0)) {
+        }
+        if ((yIndex - 1 >= 0) && (currentCell[xIndex][yIndex - 1].name().equals("live"))) {
             numOfLiveNeighbour += 1;
-        } else if ((currentCell[x][y + 1].name().equals("live")) && (y + 1 < currentCell[0].length)) {
+        }
+        if ((yIndex + 1 < currentCell[0].length) && (currentCell[xIndex][yIndex + 1].name().equals("live"))) {
             numOfLiveNeighbour += 1;
-        } else if ((currentCell[x - 1][y - 1].name().equals("live")) && (x - 1 >= 0) && (y - 1 >= 0)) {
+        }
+        if ((xIndex - 1 >= 0) && (yIndex - 1 >= 0) && (currentCell[xIndex - 1][yIndex - 1].name().equals("live"))) {
             numOfLiveNeighbour += 1;
-        } else if ((currentCell[x - 1][y + 1].name().equals("live")) && (x - 1 >= 0) && (y + 1 < currentCell[0].length)) {
+        }
+        if ((xIndex - 1 >= 0) && (yIndex + 1 < currentCell[0].length) && (currentCell[xIndex - 1][yIndex + 1].name().equals("live"))) {
             numOfLiveNeighbour += 1;
-        } else if ((currentCell[x + 1][y + 1].name().equals("live")) && (x + 1 < currentCell.length) && (y + 1 < currentCell[0].length)) {
+        }
+        if ((xIndex + 1 < currentCell.length) && (yIndex + 1 < currentCell[0].length) && (currentCell[xIndex + 1][yIndex + 1].name().equals("live"))) {
             numOfLiveNeighbour += 1;
-        } else if ((currentCell[x + 1][y - 1].name().equals("live")) && (x + 1 < currentCell.length) && (y - 1 >= 0)) {
+        }
+        if ((xIndex + 1 < currentCell.length) && (yIndex - 1 >= 0) && (currentCell[xIndex + 1][yIndex - 1].name().equals("live"))) {
             numOfLiveNeighbour += 1;
         }
         return numOfLiveNeighbour;
+    }
+
+    static Board nextGen(Board currentBoard) {
+        Cell[][] nextGeneration = new Cell[currentBoard.getNumOfRows()][currentBoard.getNumOfColumns()];
+        int numOfLiveNeighbour;
+        for (int x = 0; x < currentBoard.getNumOfRows(); x++) {
+            for (int y = 0; y < currentBoard.getNumOfColumns(); y++) {
+                nextGeneration[x][y] = Cell.dead;
+                numOfLiveNeighbour = IDK.getNumOfLiveNeighbourOfCurrentCell(currentBoard.getCells(), x, y);
+                if ((numOfLiveNeighbour >= 2) && (numOfLiveNeighbour <= 3) && (currentBoard.getCells()[x][y] == Cell.live)) {
+                    nextGeneration[x][y] = Cell.live;
+                }
+                if ((numOfLiveNeighbour == 3) && (currentBoard.getCells()[x][y] == Cell.dead)) {
+                    nextGeneration[x][y] = Cell.live;
+                }
+            }
+        }
+        return new Board(nextGeneration);
+    }
+
+    static int getNumOfLiveCellOnCurrentBoard(Board currentBoard) {
+        int numOfLiveCell = 0;
+        for (int x = 0; x < currentBoard.getNumOfRows(); x++) {
+            for (int y = 0; y < currentBoard.getNumOfColumns(); y++) {
+                if (currentBoard.getCells()[x][y] == Cell.live) {
+                    numOfLiveCell += 1;
+                }
+            }
+        }
+        return numOfLiveCell;
     }
 }
