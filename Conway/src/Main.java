@@ -3,9 +3,9 @@ public class Main {
         String validSize = IDK.getValidBoardSizeByUserInput();
         Board emptyBoard = IDK.buildBoardByValidSize(validSize);
         IDK.printCurrentBoard(emptyBoard);
-        Board firstGenBoard = IDK.initialBoardByUserInput(emptyBoard);
-        IDK.printCurrentBoard(firstGenBoard);
-        Board nextGen = IDK.nextGen(firstGenBoard);
+        Board firstGen = IDK.initialBoardByUserInput(emptyBoard);
+        IDK.printCurrentBoard(firstGen);
+        Board nextGen = IDK.nextGen(firstGen);
         IDK.printCurrentBoard(nextGen);
     }
 }
