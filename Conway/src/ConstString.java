@@ -6,7 +6,7 @@ class ConstString {
     static final String MSG_ENTER_SIZE = "Please set the size of your board by type in x*y (e.g. 9*9)";
     static final String MSG_SIZE = "\n*-*-*-*-*- This is the size of your board -*-*-*-*-*\n";
     static final String MSG_INVALID_SIZE = "Sorry, please enter a valid board size x*y (e.g. 9*9)";
-    static final String MSG_ENTER_COORDS = "\nPlease enter the coords (x y) of the live ceil to set the initial world (e.g. 0 0), and enter 'Q' to finish: ";
-    static final String MSG_INVALID_COORDS = "Sorry, please enter a valid coordinate x y (e.g. 5 6) ";
+    static final String MSG_ENTER_COORDS = "\nPlease enter the coords (x y, starts from 0) of the live ceil to set the initial world (e.g. 0 0), and enter 'Q' to finish: ";
+    static final String MSG_INVALID_COORDS = "Sorry, please enter a valid coordinate x y (e.g. 5 6), or 'Q' to quit.";
     static final String MSG_COORDS_OUT_OF_RANGE = "Sorry, the coordinate you have entered is out of range. Please try again.";
 }
