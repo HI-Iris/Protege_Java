@@ -1,12 +1,11 @@
 import java.util.Scanner;
 
 class IDK {
-
     static String getValidBoardSizeByUserInput() {
         String userInput;
         do {
             userInput = new Scanner(System.in).nextLine();
-        } while (!Validation.isValid(userInput, ConstString.VALID_BOARD_SIZE));
+        } while (!Validation.isValid(userInput, ConstString.VALID_BOARD_SIZE, ConstString.MSG_INVALID_SIZE));
         return userInput;
     }
 
@@ -23,7 +22,7 @@ class IDK {
         int numOfColumns = currentBoard.getNumOfColumns();
         Cell[][] cells = currentBoard.getCells();
         do {
-            if ((Validation.isValid(userInput, ConstString.VALID_COORDS)) && (Validation.isCoordsInRange(userInput, numOfRows, numOfColumns))) {
+            if ((Validation.isValid(userInput, ConstString.VALID_COORDS, ConstString.MSG_INVALID_COORDS)) && (Validation.isCoordsInRange(numOfRows, numOfColumns, userInput, ConstString.MSG_COORDS_OUT_OF_RANGE))) {
                 String[] coords = userInput.split(" ");
                 int rowIndex = Integer.parseInt(coords[0]);
                 int columnIndex = Integer.parseInt(coords[1]);
@@ -34,7 +33,7 @@ class IDK {
         return new Board(cells);
     }
 
-    static int getNumOfLiveNeighbourOfCurrentCell(Cell[][] cells, int xIndex, int yIndex) {
+    private static int getNumOfLiveNeighbourOfCurrentCell(Cell[][] cells, int xIndex, int yIndex) {
         int numOfLiveNeighbour = 0;
         if ((xIndex - 1 >= 0) && (cells[xIndex - 1][yIndex].name().equals("live"))) {
             numOfLiveNeighbour += 1;
