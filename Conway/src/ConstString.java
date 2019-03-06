@@ -1,5 +1,5 @@
 class ConstString {
-    static final String VALID_BOARD_SIZE = "^[0-9]+\\*[0-9]+$";
+    static final String VALID_BOARD_SIZE = "^[1-9]+[0-9]*\\*[1-9]+[0-9]*$";
     static final String VALID_COORDS = "^[0-9]+\\s[0-9]+$";
     static final String VALID_QUIT_CMD = "^[Qq]$";
     static final String MSG_WELCOME = "\n*-*-*-*-*- Welcome to the Conway's game of life-*-*-*-*-*\n";
