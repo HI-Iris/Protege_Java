@@ -1,5 +1,5 @@
 enum Cell {
-    dead("O"),live("X");
+    dead("·"),live("X");
     String status;
     Cell(String status) {
         this.status = status;
