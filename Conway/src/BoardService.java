@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class IDK {
+class BoardService {
     static String getValidBoardSizeByUserInput() {
         String userInput;
         do {
@@ -68,7 +68,7 @@ class IDK {
         for (int x = 0; x < currentBoard.getNumOfRows(); x++) {
             for (int y = 0; y < currentBoard.getNumOfColumns(); y++) {
                 nextGeneration[x][y] = Cell.dead;
-                numOfLiveNeighbour = IDK.getNumOfLiveNeighbourOfCurrentCell(currentBoard.getCells(), x, y);
+                numOfLiveNeighbour = BoardService.getNumOfLiveNeighbourOfCurrentCell(currentBoard.getCells(), x, y);
                 if ((numOfLiveNeighbour >= 2) && (numOfLiveNeighbour <= 3) && (currentBoard.getCells()[x][y] == Cell.live)) {
                     nextGeneration[x][y] = Cell.live;
                 }
