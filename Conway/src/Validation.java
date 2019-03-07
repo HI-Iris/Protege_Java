@@ -13,8 +13,8 @@ class Validation {
         String[] coords = msg[0].split(" ");
         int rowFromInput = Integer.parseInt(coords[0]);
         int columnFromInput = Integer.parseInt(coords[1]);
-        boolean result = rowFromInput < numOfRows && columnFromInput < numOfColumns;
-        if(!result && msg.length == 2){
+        boolean result = (0 < rowFromInput) && (rowFromInput <= numOfRows) && (0 < columnFromInput) && (columnFromInput <= numOfColumns);
+        if (!result && msg.length == 2) {
             SysPrint.printMsg(msg[1]);
         }
         return result;

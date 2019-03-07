@@ -24,8 +24,8 @@ class BoardService {
         do {
             if ((Validation.isValid(userInput, ConstString.VALID_COORDS, ConstString.MSG_INVALID_COORDS)) && (Validation.isCoordsInRange(numOfRows, numOfColumns, userInput, ConstString.MSG_COORDS_OUT_OF_RANGE))) {
                 String[] coords = userInput.split(" ");
-                int rowIndex = Integer.parseInt(coords[0]);
-                int columnIndex = Integer.parseInt(coords[1]);
+                int rowIndex = Integer.parseInt(coords[0]) - 1;
+                int columnIndex = Integer.parseInt(coords[1]) - 1;
                 cells[rowIndex][columnIndex] = Cell.live;
             }
             userInput = new Scanner(System.in).nextLine();
@@ -33,55 +33,62 @@ class BoardService {
         return new Board(cells);
     }
 
-    private static boolean isTopLeftCellLive(Cell[][] cells, int xIndex, int yIndex){
+    private static boolean isTopLeftCellLive(Cell[][] cells, int xIndex, int yIndex) {
         return (xIndex - 1 >= 0) && (yIndex - 1 >= 0) && (cells[xIndex - 1][yIndex - 1].name().equals("live"));
     }
-    private static boolean isTopCellLive(Cell[][] cells, int xIndex, int yIndex){
+
+    private static boolean isTopCellLive(Cell[][] cells, int xIndex, int yIndex) {
         return (xIndex - 1 >= 0) && (cells[xIndex - 1][yIndex].name().equals("live"));
     }
-    private static boolean isTopRightCellLive(Cell[][] cells, int xIndex, int yIndex){
+
+    private static boolean isTopRightCellLive(Cell[][] cells, int xIndex, int yIndex) {
         return (xIndex - 1 >= 0) && (yIndex + 1 < cells[0].length) && (cells[xIndex - 1][yIndex + 1].name().equals("live"));
     }
-    private static boolean isRightCellLive(Cell[][] cells, int xIndex, int yIndex){
+
+    private static boolean isRightCellLive(Cell[][] cells, int xIndex, int yIndex) {
         return (yIndex + 1 < cells[0].length) && (cells[xIndex][yIndex + 1].name().equals("live"));
     }
-    private static boolean isBottomRightCellLive(Cell[][] cells, int xIndex, int yIndex){
+
+    private static boolean isBottomRightCellLive(Cell[][] cells, int xIndex, int yIndex) {
         return (xIndex + 1 < cells.length) && (yIndex + 1 < cells[0].length) && (cells[xIndex + 1][yIndex + 1].name().equals("live"));
     }
-    private static boolean isBottomCellLive(Cell[][] cells, int xIndex, int yIndex){
+
+    private static boolean isBottomCellLive(Cell[][] cells, int xIndex, int yIndex) {
         return (xIndex + 1 < cells.length) && (cells[xIndex + 1][yIndex].name().equals("live"));
     }
-    private static boolean isBottomLeftCellLive(Cell[][] cells, int xIndex, int yIndex){
+
+    private static boolean isBottomLeftCellLive(Cell[][] cells, int xIndex, int yIndex) {
         return (xIndex + 1 < cells.length) && (yIndex - 1 >= 0) && (cells[xIndex + 1][yIndex - 1].name().equals("live"));
     }
-    private static boolean isLeftCellLive(Cell[][] cells, int xIndex, int yIndex){
+
+    private static boolean isLeftCellLive(Cell[][] cells, int xIndex, int yIndex) {
         return (yIndex - 1 >= 0) && (cells[xIndex][yIndex - 1].name().equals("live"));
     }
 
     private static int getNumOfLiveNeighbourOfCurrentCell(Cell[][] cells, int xIndex, int yIndex) {
         int numOfLiveNeighbour = 0;
-        if (isTopLeftCellLive(cells,xIndex,yIndex)) {
+        if (isTopLeftCellLive(cells, xIndex, yIndex)) {
             numOfLiveNeighbour += 1;
         }
-        if (isTopCellLive(cells,xIndex,yIndex)) {
+        if (isTopCellLive(cells, xIndex, yIndex)) {
             numOfLiveNeighbour += 1;
         }
-        if (isTopRightCellLive(cells,xIndex,yIndex)) {
+        if (isTopRightCellLive(cells, xIndex, yIndex)) {
             numOfLiveNeighbour += 1;
         }
-        if (isRightCellLive(cells,xIndex,yIndex)) {
+        if (isRightCellLive(cells, xIndex, yIndex)) {
             numOfLiveNeighbour += 1;
         }
-        if (isBottomRightCellLive(cells,xIndex,yIndex)) {
+        if (isBottomRightCellLive(cells, xIndex, yIndex)) {
             numOfLiveNeighbour += 1;
         }
-        if (isBottomCellLive(cells,xIndex,yIndex)) {
+        if (isBottomCellLive(cells, xIndex, yIndex)) {
             numOfLiveNeighbour += 1;
         }
-        if (isBottomLeftCellLive(cells,xIndex,yIndex)) {
+        if (isBottomLeftCellLive(cells, xIndex, yIndex)) {
             numOfLiveNeighbour += 1;
         }
-        if (isLeftCellLive(cells,xIndex,yIndex)) {
+        if (isLeftCellLive(cells, xIndex, yIndex)) {
             numOfLiveNeighbour += 1;
         }
         return numOfLiveNeighbour;
