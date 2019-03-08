@@ -1,0 +1,3 @@
+class MasterMind implements Players{
+
+}
