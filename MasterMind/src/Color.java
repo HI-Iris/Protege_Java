@@ -4,5 +4,5 @@ enum Color {
     Green,
     Orange,
     Purple,
-    Yellow;
+    Yellow
 }
