@@ -1,3 +1,3 @@
-class Human implements Players {
+class Human {
 
 }
