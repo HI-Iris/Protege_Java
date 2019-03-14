@@ -1,4 +1,4 @@
-class ConstString {
+class Constants {
     static final String ERROR_INVALID_COLOR = "Error: you have given an invalid colour!";
     static final String ERROR_INVALID_LENGTH = "Error: you must pass 4 colours!";
     static final String ERROR_TRY_OVER_60 = "Error: you have had more than 60 tries!";
@@ -8,4 +8,5 @@ class ConstString {
     static final String MSG_COLOR_MATCH = "Here is the result:";
     static final int NUM_OF_COLOR_IN_GAME = 4;
     static final int NUM_OF_COLOR_IN_TOTAL = 6;
+    static final int MAX_ATTEMPT = 60;
 }
