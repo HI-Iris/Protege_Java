@@ -1,0 +1,3 @@
+interface ColorBuilder {
+    Color[] buildColor();
+}
