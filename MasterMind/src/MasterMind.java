@@ -1,11 +1,13 @@
-class MasterMind {
-    private Color[] masterColors;
+import java.util.List;
 
-    MasterMind (Color[] masterColors){
+class MasterMind {
+    private List<Color> masterColors;
+
+    MasterMind (List<Color> masterColors){
         this.masterColors = masterColors;
     }
 
-    Color[] getMasterColors() {
+    List<Color> getMasterColors() {
         return masterColors;
     }
 }
