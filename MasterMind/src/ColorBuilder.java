@@ -1,3 +1,5 @@
+import java.util.List;
+
 interface ColorBuilder {
-    Color[] buildColor();
+    List<Color> buildColor(String[]... userInput);
 }
