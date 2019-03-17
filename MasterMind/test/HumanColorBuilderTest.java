@@ -1,8 +1,8 @@
-//import org.junit.Test;
-//
-//import static org.junit.Assert.*;
-//
-//public class HumanColorBuilderTest {
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class HumanColorBuilderTest {
 //    private HumanColorBuilder humanColorBuilder = new HumanColorBuilder();
 //
 //    @Test
@@ -60,4 +60,4 @@
 //        Color[] resultColor = humanColorBuilder.buildColor(userInput);
 //        assertArrayEquals(expectedColor, resultColor);
 //    }
-//}
+}
