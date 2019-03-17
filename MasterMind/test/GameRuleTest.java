@@ -1,57 +1,97 @@
 import org.junit.Test;
+import java.util.ArrayList;
+import java.util.List;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+
 
 public class GameRuleTest {
     private MasterMind masterMind;
+    private List<Color> masterColors;
+    private List<Color> humanColors;
 
     @Test
     public void givenRedWithRedInputShouldReturnBlack() {
-        Color[] masterColors = {Color.Red};
+        this.masterColors = new ArrayList<>();
+        masterColors.add(Color.Red);
+        this.humanColors = new ArrayList<>();
+        humanColors.add(Color.Red);
         this.masterMind = new MasterMind(masterColors);
-        Color[] humanInput = {Color.Red};
-        Result[] result = GameRules.match(humanInput, masterMind);
-        Result[] expected = {Result.Black};
+        List<Result> result = GameRules.match(humanColors, masterMind);
+        List<Result> expected = new ArrayList<>();
+        expected.add(Result.Black);
         assertThat(result, equalTo(expected));
     }
 
     @Test
     public void givenRedBlueWithRedBlueInputShouldReturnBlackBlack() {
-        Color[] masterColors = {Color.Red, Color.Blue};
+        this.masterColors = new ArrayList<>();
+        masterColors.add(Color.Red);
+        masterColors.add(Color.Blue);
+        this.humanColors = new ArrayList<>();
+        humanColors.add(Color.Red);
+        humanColors.add(Color.Blue);
         this.masterMind = new MasterMind(masterColors);
-        Color[] humanInput = {Color.Red, Color.Blue};
-        Result[] result = GameRules.match(humanInput, masterMind);
-        Result[] expected = {Result.Black, Result.Black};
+        List<Result> result = GameRules.match(humanColors, masterMind);
+        List<Result> expected = new ArrayList<>();
+        expected.add(Result.Black);
+        expected.add(Result.Black);
+
         assertThat(result, equalTo(expected));
     }
 
     @Test
     public void givenRedBlueWithBlueRedInputShouldReturnWhiteWhite() {
-        Color[] masterColors = {Color.Blue, Color.Red};
+        this.masterColors = new ArrayList<>();
+        masterColors.add(Color.Blue);
+        masterColors.add(Color.Red);
+        this.humanColors = new ArrayList<>();
+        humanColors.add(Color.Red);
+        humanColors.add(Color.Blue);
         this.masterMind = new MasterMind(masterColors);
-        Color[] humanInput = {Color.Red, Color.Blue};
-        Result[] result = GameRules.match(humanInput, masterMind);
-        Result[] expected = {Result.White, Result.White};
+        List<Result> result = GameRules.match(humanColors, masterMind);
+        List<Result> expected = new ArrayList<>();
+        expected.add(Result.White);
+        expected.add(Result.White);
+
         assertThat(result, equalTo(expected));
     }
 
     @Test
     public void givenRedBlueWithBlueBlueInputShouldReturnWhiteWhite() {
-        Color[] masterColors = {Color.Blue, Color.Red};
+        this.masterColors = new ArrayList<>();
+        masterColors.add(Color.Blue);
+        masterColors.add(Color.Red);
+        this.humanColors = new ArrayList<>();
+        humanColors.add(Color.Blue);
+        humanColors.add(Color.Blue);
         this.masterMind = new MasterMind(masterColors);
-        Color[] humanInput = {Color.Blue, Color.Blue};
-        Result[] result = GameRules.match(humanInput, masterMind);
-        Result[] expected = {Result.Black, Result.White};
+        List<Result> result = GameRules.match(humanColors, masterMind);
+        List<Result> expected = new ArrayList<>();
+        expected.add(Result.Black);
+        expected.add(Result.White);
         assertThat(result, equalTo(expected));
     }
 
     @Test
     public void givenRedRedRedBlueWithRedRedBlueRedInputShouldReturnWhiteWhite() {
-        Color[] masterColors = {Color.Red, Color.Red, Color.Red, Color.Blue};
+        this.masterColors = new ArrayList<>();
+        masterColors.add(Color.Red);
+        masterColors.add(Color.Red);
+        masterColors.add(Color.Red);
+        masterColors.add(Color.Blue);
+        this.humanColors = new ArrayList<>();
+        humanColors.add(Color.Red);
+        humanColors.add(Color.Red);
+        humanColors.add(Color.Blue);
+        humanColors.add(Color.Red);
         this.masterMind = new MasterMind(masterColors);
-        Color[] humanInput = {Color.Red, Color.Red, Color.Blue, Color.Red};
-        Result[] result = GameRules.match(humanInput, masterMind);
-        Result[] expected = {Result.Black, Result.Black, Result.White, Result.White};
+        List<Result> result = GameRules.match(humanColors, masterMind);
+        List<Result> expected = new ArrayList<>();
+        expected.add(Result.Black);
+        expected.add(Result.Black);
+        expected.add(Result.White);
+        expected.add(Result.White);
         assertThat(result, equalTo(expected));
     }
 }
