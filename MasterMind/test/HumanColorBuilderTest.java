@@ -1,17 +1,25 @@
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 
 public class HumanColorBuilderTest {
-//    private HumanColorBuilder humanColorBuilder = new HumanColorBuilder();
-//
-//    @Test
-//    public void givenStringRedReturnColorArrayRed() {
-//        String[] userInput = {"Red"};
-//        Color[] expectedColor = {Color.Red};
-//        Color[] resultColor = humanColorBuilder.buildColor(userInput);
-//        assertArrayEquals(expectedColor, resultColor);
-//    }
+    private HumanColorBuilder humanColorBuilder;
+    private List<Color> expectedColor;
+    private List<Color> resultColor;
+
+    @Test
+    public void givenStringRedReturnColorArrayRed() {
+        this.humanColorBuilder = new HumanColorBuilder();
+        this.expectedColor = new ArrayList<>();
+        this.resultColor = new ArrayList<>();
+        resultColor = humanColorBuilder.buildColor(new String[]{"Red"});
+        expectedColor.add(Color.Red);
+        assertThat(resultColor, equalTo(expectedColor));
+    }
 //
 //    @Test
 //    public void givenStringBlueReturnColorArrayBlue() {
