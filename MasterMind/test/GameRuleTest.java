@@ -6,9 +6,11 @@ import static org.junit.Assert.*;
 
 
 public class GameRuleTest {
-    private MasterMind masterMind;
     private List<Color> masterColors;
     private List<Color> humanColors;
+    private List<Result> resultColors;
+    private List<Result> expectedColors;
+    GameRules referee = new GameRules();
 
     @Test
     public void givenRedWithRedInputShouldReturnBlack() {
@@ -16,11 +18,10 @@ public class GameRuleTest {
         masterColors.add(Color.Red);
         this.humanColors = new ArrayList<>();
         humanColors.add(Color.Red);
-        this.masterMind = new MasterMind(masterColors);
-        List<Result> result = GameRules.match(humanColors, masterMind);
-        List<Result> expected = new ArrayList<>();
-        expected.add(Result.Black);
-        assertThat(result, equalTo(expected));
+        this.expectedColors= new ArrayList<>();
+        expectedColors.add(Result.Black);
+        this.resultColors = referee.check(humanColors, masterColors);
+        assertThat(resultColors, equalTo(expectedColors));
     }
 
     @Test
@@ -31,13 +32,11 @@ public class GameRuleTest {
         this.humanColors = new ArrayList<>();
         humanColors.add(Color.Red);
         humanColors.add(Color.Blue);
-        this.masterMind = new MasterMind(masterColors);
-        List<Result> result = GameRules.match(humanColors, masterMind);
-        List<Result> expected = new ArrayList<>();
-        expected.add(Result.Black);
-        expected.add(Result.Black);
-
-        assertThat(result, equalTo(expected));
+        this.expectedColors = new ArrayList<>();
+        expectedColors.add(Result.Black);
+        expectedColors.add(Result.Black);
+        this.resultColors = referee.check(humanColors, masterColors);
+        assertThat(resultColors, equalTo(expectedColors));
     }
 
     @Test
@@ -48,13 +47,11 @@ public class GameRuleTest {
         this.humanColors = new ArrayList<>();
         humanColors.add(Color.Red);
         humanColors.add(Color.Blue);
-        this.masterMind = new MasterMind(masterColors);
-        List<Result> result = GameRules.match(humanColors, masterMind);
-        List<Result> expected = new ArrayList<>();
-        expected.add(Result.White);
-        expected.add(Result.White);
-
-        assertThat(result, equalTo(expected));
+        this.expectedColors = new ArrayList<>();
+        expectedColors.add(Result.White);
+        expectedColors.add(Result.White);
+        this.resultColors = referee.check(humanColors, masterColors);
+        assertThat(resultColors, equalTo(expectedColors));
     }
 
     @Test
@@ -65,12 +62,11 @@ public class GameRuleTest {
         this.humanColors = new ArrayList<>();
         humanColors.add(Color.Blue);
         humanColors.add(Color.Blue);
-        this.masterMind = new MasterMind(masterColors);
-        List<Result> result = GameRules.match(humanColors, masterMind);
-        List<Result> expected = new ArrayList<>();
-        expected.add(Result.Black);
-        expected.add(Result.White);
-        assertThat(result, equalTo(expected));
+        this.expectedColors = new ArrayList<>();
+        expectedColors.add(Result.Black);
+        expectedColors.add(Result.White);
+        this.resultColors = referee.check(humanColors, masterColors);
+        assertThat(resultColors, equalTo(expectedColors));
     }
 
     @Test
@@ -85,13 +81,12 @@ public class GameRuleTest {
         humanColors.add(Color.Red);
         humanColors.add(Color.Blue);
         humanColors.add(Color.Red);
-        this.masterMind = new MasterMind(masterColors);
-        List<Result> result = GameRules.match(humanColors, masterMind);
-        List<Result> expected = new ArrayList<>();
-        expected.add(Result.Black);
-        expected.add(Result.Black);
-        expected.add(Result.White);
-        expected.add(Result.White);
-        assertThat(result, equalTo(expected));
+        this.expectedColors = new ArrayList<>();
+        expectedColors.add(Result.Black);
+        expectedColors.add(Result.Black);
+        expectedColors.add(Result.White);
+        expectedColors.add(Result.White);
+        this.resultColors = referee.check(humanColors, masterColors);
+        assertThat(resultColors, equalTo(expectedColors));
     }
 }
