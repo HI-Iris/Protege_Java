@@ -5,31 +5,31 @@ class HumanColorBuilder implements ColorBuilder {
     @Override
     public List<Color> buildColor(String[]... userInput) {
         int num = userInput[0].length;
-        List<Color> result= new ArrayList<>();
+        List<Color> colorList= new ArrayList<>();
         for (int i = 0; i < num; i++) {
-            switch (userInput[0][i]) {
-                case "Red":
-                    result.add(Color.Red);
+            switch (userInput[0][i].toUpperCase()) {
+                case "RED":
+                    colorList.add(Color.Red);
                     break;
-                case "Blue":
-                    result.add(Color.Blue);
+                case "BLUE":
+                    colorList.add(Color.Blue);
                     break;
-                case "Yellow":
-                    result.add(Color.Yellow);
+                case "YELLOW":
+                    colorList.add(Color.Yellow);
                     break;
-                case "Green":
-                    result.add(Color.Green);
+                case "GREEN":
+                    colorList.add(Color.Green);
                     break;
-                case "Purple":
-                    result.add(Color.Purple);
+                case "PURPLE":
+                    colorList.add(Color.Purple);
                     break;
-                case "Orange":
-                    result.add(Color.Orange);
+                case "ORANGE":
+                    colorList.add(Color.Orange);
                     break;
                 default:
                     break;
             }
         }
-        return result;
+        return colorList;
     }
 }
