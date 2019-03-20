@@ -12,17 +12,17 @@ public class StarterMasterMind implements Starter {
         int gameAttempts = 0;
         parserConsole.printMSG(Constants.MSG_WELCOME);
         do {
+            if (gameAttempts == Constants.MAX_ATTEMPT) {
+                parserConsole.printMSG(Constants.ERROR_TRY_OVER_60);
+                break;
+            }
             parserConsole.printMSG(Constants.MSG_ENTER_COLOR);
             humanColors = parserConsole.getValidInput();
             resultColors = referee.check(humanColors, masterColors);
             parserConsole.printMSG(Constants.MSG_COLOR_CHECK);
             parserConsole.printList(resultColors);
             gameAttempts += 1;
-            if (gameAttempts == Constants.MAX_ATTEMPT) {
-                parserConsole.printMSG(Constants.ERROR_TRY_OVER_60);
-                break;
-            }
         } while (!Validation.areResultColorsAllBlack(resultColors));
-
+        Validation.isAttemptsOver60(gameAttempts);
     }
 }
