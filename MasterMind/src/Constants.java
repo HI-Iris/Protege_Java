@@ -11,5 +11,5 @@ class Constants {
 
     static final int NUM_OF_COLOR_IN_GAME = 4;
     static final int NUM_OF_COLOR_IN_TOTAL = 6;
-    static final int MAX_ATTEMPT = 10;
+    static final int MAX_ATTEMPT = 60;
 }
