@@ -14,7 +14,7 @@ class Validation {
     }
 
     static boolean areResultColorsAllBlack(List<Result> resultColors) {
-        return !resultColors.isEmpty() && resultColors.stream().distinct().limit(2).count() <= 1 && resultColors.get(0) != Result.White;
+        return resultColors.size()==Constants.NUM_OF_COLOR_IN_GAME && resultColors.stream().distinct().limit(2).count() <= 1 && resultColors.get(0) == Result.Black;
     }
 
     static void isAttemptsOver60(int attempts){
