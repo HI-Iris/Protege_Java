@@ -57,4 +57,12 @@ public class ValidationTest {
         resultColors.add(Result.White);
         assertFalse(Validation.areResultColorsAllBlack(resultColors));
     }
+
+    @Test
+    public void givenTwoBlackReturnFalse(){
+        this.resultColors = new ArrayList<>();
+        resultColors.add(Result.Black);
+        resultColors.add(Result.Black);
+        assertFalse(Validation.areResultColorsAllBlack(resultColors));
+    }
 }
