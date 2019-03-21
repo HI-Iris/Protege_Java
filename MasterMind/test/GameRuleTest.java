@@ -10,7 +10,7 @@ public class GameRuleTest {
     private List<Color> humanColors;
     private List<Result> resultColors;
     private List<Result> expectedColors;
-    GameRules referee = new GameRules();
+    private GameRules referee = new GameRules();
 
     @Test
     public void givenRedWithRedInputShouldReturnBlack() {
