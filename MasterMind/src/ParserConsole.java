@@ -10,7 +10,7 @@ public class ParserConsole implements Parser {
         List<Color> humanColor;
         do {
             userInput = new Scanner(System.in).nextLine();
-            humanColor = humanColorBuilder.buildColor(userInput.split(","));
+            humanColor = humanColorBuilder.buildColor(userInput.split(" "));
         } while (!Validation.isFourColorList(humanColor));
         return humanColor;
     }
