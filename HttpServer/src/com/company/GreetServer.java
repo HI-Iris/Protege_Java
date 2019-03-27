@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class JavaHTTPServer {
+public class GreetServer {
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private PrintWriter out;

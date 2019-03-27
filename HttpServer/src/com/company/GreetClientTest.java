@@ -1,21 +1,17 @@
 package com.company;
 
-import org.jboss.arquillian.container.test.api.Deployment;
-import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
-import org.jboss.shrinkwrap.api.spec.JavaArchive;
-import org.junit.runner.RunWith;
+
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
-@RunWith(Arquillian.class)
 public class GreetClientTest {
-    @Deployment
-    public static JavaArchive createDeployment() {
-        return ShrinkWrap.create(JavaArchive.class)
-                .addClass(GreetClient.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+    @org.junit.Test
+    public void givenGreetingClient_whenServerRespondsWhenStarted_thenCorrect() throws IOException {
+        GreetClient client = new GreetClient();
+        client.startConnection("127.0.0.1", 6666);
+        String response = client.sendMessage("hello server");
+        assertEquals("hello client", response);
     }
 
 }
