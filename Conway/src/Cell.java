@@ -1,7 +1,7 @@
 enum Cell {
     dead("·"),live("X");
-    String status;
-    Cell(String status) {
-        this.status = status;
+    String marker;
+    Cell(String marker) {
+        this.marker = marker;
     }
 }

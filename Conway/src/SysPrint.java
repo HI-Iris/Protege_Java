@@ -11,7 +11,7 @@ class SysPrint {
     static void printCurrentBoard(Board currentBoard) {
         for (int x = 0; x < currentBoard.getNumOfRows(); x++) {
             for (int y = 0; y < currentBoard.getNumOfColumns(); y++) {
-                System.out.print(currentBoard.getCells()[x][y].status + "  ");
+                System.out.print(currentBoard.getCells()[x][y].marker + "  ");
             }
             System.out.println();
         }

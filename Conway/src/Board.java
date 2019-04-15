@@ -7,11 +7,7 @@ class Board {
         this.numOfRows = numOfRows;
         this.numOfColumns = numOfColumns;
         this.cells = new Cell[numOfRows][numOfColumns];
-        for (int x = 0; x < this.getNumOfRows(); x++) {
-            for (int y = 0; y < this.getNumOfColumns(); y++) {
-                this.getCells()[x][y] = Cell.dead;
-            }
-        }
+        setAllCellsDead();
     }
 
     Board(Cell[][] cells) {
@@ -30,5 +26,13 @@ class Board {
 
     int getNumOfRows() {
         return numOfRows;
+    }
+
+    private void setAllCellsDead(){
+        for (int x = 0; x < this.getNumOfRows(); x++) {
+            for (int y = 0; y < this.getNumOfColumns(); y++) {
+                this.getCells()[x][y] = Cell.dead;
+            }
+        }
     }
 }
