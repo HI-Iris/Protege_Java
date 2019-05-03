@@ -1,8 +1,12 @@
+package game;
+
+import color.Color;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class GameRules {
-    List<Result> check(List<Color> humanColors, List<Color> masterColors) {
+public class Referee {
+    public List<Result> matchHumanColorWithMasterMind(List<Color> humanColors, List<Color> masterColors) {
         List<Result> result = new ArrayList<>();
         for (int i = 0; i < humanColors.size(); i++) {
             if (humanColors.get(i) == masterColors.get(i)) {

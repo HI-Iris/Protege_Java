@@ -1,4 +1,6 @@
-enum Color {
+package color;
+
+public enum Color {
     Red,
     Blue,
     Green,

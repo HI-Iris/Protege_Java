@@ -1,3 +1,6 @@
+import color.Color;
+import game.Result;
+import game.Validation;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,7 +1,11 @@
+package color;
+
+import service.Constants;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class MasterColorBuilder implements ColorBuilder{
+public class MasterColorBuilder implements ColorBuilder {
     private static int getRandomColorIndex() {
         return (int) (Math.random() * Constants.NUM_OF_COLOR_IN_TOTAL);
     }

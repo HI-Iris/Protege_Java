@@ -1,3 +1,0 @@
-interface Starter {
-    void gameStart();
-}

@@ -1,3 +1,5 @@
+import color.Color;
+import color.HumanColorBuilder;
 import org.junit.Test;
 
 import java.util.ArrayList;

@@ -1,7 +1,9 @@
+package color;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class HumanColorBuilder implements ColorBuilder {
+public class HumanColorBuilder implements ColorBuilder {
     @Override
     public List<Color> buildColor(String[]... userInput) {
         int num = userInput[0].length;
