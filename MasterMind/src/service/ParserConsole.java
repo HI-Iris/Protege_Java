@@ -1,9 +1,11 @@
 package service;
 
-import color.Color;
+import model.Color;
 import color.ColorBuilder;
 import color.HumanColorBuilder;
 import game.*;
+import model.Constants;
+import model.Result;
 
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +20,7 @@ public class ParserConsole implements Parser {
         do {
             userInput = new Scanner(System.in).nextLine();
             humanColor = humanColorBuilder.buildColor(userInput.split(" "));
-        } while (!Validation.isFourColorList(humanColor));
+        } while (!Validation.isColorListLengthFour(humanColor));
         return humanColor;
     }
 

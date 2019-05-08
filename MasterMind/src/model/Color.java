@@ -1,4 +1,4 @@
-package color;
+package model;
 
 public enum Color {
     Red,

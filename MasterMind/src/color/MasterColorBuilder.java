@@ -1,6 +1,7 @@
 package color;
 
-import service.Constants;
+import model.Color;
+import model.Constants;
 
 import java.util.ArrayList;
 import java.util.List;

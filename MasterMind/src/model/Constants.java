@@ -1,4 +1,4 @@
-package service;
+package model;
 
 public class Constants {
     public static final String ERROR_INVALID_COLOR = "Error: you have given an invalid colour!";
