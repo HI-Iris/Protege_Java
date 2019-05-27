@@ -19,8 +19,6 @@ public class HumanCore {
     public List<Color> getHumanColors() {
         List<Color> humanColors;
         Result humanColorBuildResult;
-        Parser parser = new Parser();
-        ColorBuilder humanColorBuilder = new HumanColorBuilder();
         do {
             System.out.println(Constants.MSG_ENTER_COLOR);
             String[] userInput = parser.parseRawInputToList(new Scanner(System.in));
