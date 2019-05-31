@@ -1,27 +1,27 @@
 package com.myob.iris.controller;
 
 import com.myob.iris.model.*;
-import com.myob.iris.service.Parser;
+import com.myob.iris.service.InputSplitter;
 import com.myob.iris.service.Validator;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class HumanCore {
+class HumanColorParser {
     private ColorBuilder humanColorBuilder;
-    private Parser parser;
+    private InputSplitter inputSplitter;
 
-    public HumanCore(ColorBuilder humanColorBuilder, Parser parser) {
+    HumanColorParser(ColorBuilder humanColorBuilder, InputSplitter inputSplitter) {
         this.humanColorBuilder = humanColorBuilder;
-        this.parser = parser;
+        this.inputSplitter = inputSplitter;
     }
 
-    public List<Color> getHumanColors() {
+    List<Color> getHumanColors() {
         List<Color> humanColors;
         Result humanColorBuildResult;
         do {
             System.out.println(Constants.MSG_ENTER_COLOR);
-            String[] userInput = parser.parseRawInputToList(new Scanner(System.in));
+            String[] userInput = inputSplitter.splitRawInputToArray(new Scanner(System.in));
             humanColors = humanColorBuilder.buildColor(userInput);
             humanColorBuildResult = Validator.validateLengthOfHumanColorIsFour(humanColors);
             humanColorBuildResult.getReason().ifPresent(System.out::println);

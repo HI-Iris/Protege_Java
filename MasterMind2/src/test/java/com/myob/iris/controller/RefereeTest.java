@@ -18,33 +18,33 @@ public class RefereeTest {
 
     @Test
     public void givenAttempts59AndAllBlackReturnTrue() {
-        assertTrue(this.referee.isWon(allBlack ,59).isValid());
+        assertTrue(this.referee.arbitrate(allBlack ,59).isValid());
     }
 
     @Test
     public void givenAttempts60AndAllBlackReturnTrue() {
-        assertTrue(this.referee.isWon(allBlack ,60).isValid());
+        assertTrue(this.referee.arbitrate(allBlack ,60).isValid());
     }
 
     @Test
     public void givenAttempts59AndNotAllBlackReturnFalse() {
-        assertFalse(this.referee.isWon(notAllBlack ,59).isValid());
+        assertFalse(this.referee.arbitrate(notAllBlack ,59).isValid());
 
     }
 
     @Test
     public void givenAttempts60AndNotAllBlackReturnFalse() {
-        assertFalse(this.referee.isWon(notAllBlack ,60).isValid());
+        assertFalse(this.referee.arbitrate(notAllBlack ,60).isValid());
     }
 
     @Test
     public void givenAttempts61AndNotAllBlackReturnFalse() {
-        assertFalse(this.referee.isWon(notAllBlack ,61).isValid());
+        assertFalse(this.referee.arbitrate(notAllBlack ,61).isValid());
     }
 
     @Test
     public void givenAttempts61AndAllBlackReturnFalse() {
-        assertFalse(this.referee.isWon(allBlack ,61).isValid());
+        assertFalse(this.referee.arbitrate(allBlack ,61).isValid());
     }
 
 }

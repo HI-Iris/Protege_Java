@@ -26,6 +26,10 @@ public class Printer {
         }
     }
 
+    public void printMessage(String message) {
+        System.out.println(message);
+    }
+
     private String composeIdentifiers(List<MatchingIdentifier> matchingIdentifier) {
         StringBuilder builder = new StringBuilder();
         for (MatchingIdentifier matchingId : matchingIdentifier) {

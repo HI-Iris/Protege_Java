@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Referee {
 
-    public Result isWon(List<MatchingIdentifier> matchingIdentifiers, int attempts) {
+    public Result arbitrate(List<MatchingIdentifier> matchingIdentifiers, int attempts) {
         if (isAllMatchingIdentifierBlack(matchingIdentifiers) && attempts <= Constants.MAX_ATTEMPT) {
             return Result.valid();
         } else if (attempts > Constants.MAX_ATTEMPT) {

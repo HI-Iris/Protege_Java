@@ -10,8 +10,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 
-public class ParserTest {
-    Parser parser = new Parser();
+public class InputSplitterTest {
+    InputSplitter inputSplitter = new InputSplitter();
 
     private InputStream setInputStreamWithSpace() {
         String input = "apple pie";
@@ -21,7 +21,7 @@ public class ParserTest {
     @Test
     public void parseRawInputToList() {
         InputStream in = setInputStreamWithSpace();
-        String[] actual = parser.parseRawInputToList(new Scanner(in));
+        String[] actual = inputSplitter.splitRawInputToArray(new Scanner(in));
         String[] expect = {"apple", "pie"};
         assertThat(actual, equalTo(expect));
     }
