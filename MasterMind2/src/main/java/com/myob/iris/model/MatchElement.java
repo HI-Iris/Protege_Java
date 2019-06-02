@@ -1,6 +1,6 @@
 package com.myob.iris.model;
 
-public enum MatchingIdentifier {
+public enum MatchElement {
     Black,
     White
 }

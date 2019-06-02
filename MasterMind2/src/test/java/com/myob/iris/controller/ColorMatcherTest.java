@@ -1,7 +1,7 @@
 package com.myob.iris.controller;
 
 import com.myob.iris.model.Color;
-import com.myob.iris.model.MatchingIdentifier;
+import com.myob.iris.model.MatchElement;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -14,8 +14,8 @@ import static org.junit.Assert.assertThat;
 public class ColorMatcherTest {
     private List<Color> masterColors;
     private List<Color> humanColors;
-    private List<MatchingIdentifier> actualMatchingIdentifier;
-    private List<MatchingIdentifier> expectedMatchingIdentifier;
+    private List<MatchElement> actualMatchElement;
+    private List<MatchElement> expectedMatchElement;
     private ColorMatcher colorMatcher = new ColorMatcher();
 
     @Test
@@ -24,10 +24,10 @@ public class ColorMatcherTest {
         masterColors.add(Color.Red);
         this.humanColors = new ArrayList<>();
         humanColors.add(Color.Red);
-        this.expectedMatchingIdentifier = new ArrayList<>();
-        expectedMatchingIdentifier.add(MatchingIdentifier.Black);
-        this.actualMatchingIdentifier = colorMatcher.match(humanColors, masterColors);
-        assertThat(actualMatchingIdentifier, equalTo(expectedMatchingIdentifier));
+        this.expectedMatchElement = new ArrayList<>();
+        expectedMatchElement.add(MatchElement.Black);
+        this.actualMatchElement = colorMatcher.match(humanColors, masterColors);
+        assertThat(actualMatchElement, equalTo(expectedMatchElement));
     }
 
     @Test
@@ -38,11 +38,11 @@ public class ColorMatcherTest {
         this.humanColors = new ArrayList<>();
         humanColors.add(Color.Red);
         humanColors.add(Color.Blue);
-        this.expectedMatchingIdentifier = new ArrayList<>();
-        expectedMatchingIdentifier.add(MatchingIdentifier.Black);
-        expectedMatchingIdentifier.add(MatchingIdentifier.Black);
-        this.actualMatchingIdentifier = colorMatcher.match(humanColors, masterColors);
-        assertThat(actualMatchingIdentifier, equalTo(expectedMatchingIdentifier));
+        this.expectedMatchElement = new ArrayList<>();
+        expectedMatchElement.add(MatchElement.Black);
+        expectedMatchElement.add(MatchElement.Black);
+        this.actualMatchElement = colorMatcher.match(humanColors, masterColors);
+        assertThat(actualMatchElement, equalTo(expectedMatchElement));
     }
 
     @Test
@@ -53,11 +53,11 @@ public class ColorMatcherTest {
         this.humanColors = new ArrayList<>();
         humanColors.add(Color.Red);
         humanColors.add(Color.Blue);
-        this.expectedMatchingIdentifier = new ArrayList<>();
-        expectedMatchingIdentifier.add(MatchingIdentifier.White);
-        expectedMatchingIdentifier.add(MatchingIdentifier.White);
-        this.actualMatchingIdentifier = colorMatcher.match(humanColors, masterColors);
-        assertThat(actualMatchingIdentifier, equalTo(expectedMatchingIdentifier));
+        this.expectedMatchElement = new ArrayList<>();
+        expectedMatchElement.add(MatchElement.White);
+        expectedMatchElement.add(MatchElement.White);
+        this.actualMatchElement = colorMatcher.match(humanColors, masterColors);
+        assertThat(actualMatchElement, equalTo(expectedMatchElement));
     }
 
     @Test
@@ -68,11 +68,11 @@ public class ColorMatcherTest {
         this.humanColors = new ArrayList<>();
         humanColors.add(Color.Blue);
         humanColors.add(Color.Blue);
-        this.expectedMatchingIdentifier = new ArrayList<>();
-        expectedMatchingIdentifier.add(MatchingIdentifier.Black);
-        expectedMatchingIdentifier.add(MatchingIdentifier.White);
-        this.actualMatchingIdentifier = colorMatcher.match(humanColors, masterColors);
-        assertThat(actualMatchingIdentifier, equalTo(expectedMatchingIdentifier));
+        this.expectedMatchElement = new ArrayList<>();
+        expectedMatchElement.add(MatchElement.Black);
+        expectedMatchElement.add(MatchElement.White);
+        this.actualMatchElement = colorMatcher.match(humanColors, masterColors);
+        assertThat(actualMatchElement, equalTo(expectedMatchElement));
     }
 
     @Test
@@ -87,12 +87,12 @@ public class ColorMatcherTest {
         humanColors.add(Color.Red);
         humanColors.add(Color.Blue);
         humanColors.add(Color.Red);
-        this.expectedMatchingIdentifier = new ArrayList<>();
-        expectedMatchingIdentifier.add(MatchingIdentifier.Black);
-        expectedMatchingIdentifier.add(MatchingIdentifier.Black);
-        expectedMatchingIdentifier.add(MatchingIdentifier.White);
-        expectedMatchingIdentifier.add(MatchingIdentifier.White);
-        this.actualMatchingIdentifier = colorMatcher.match(humanColors, masterColors);
-        assertThat(actualMatchingIdentifier, equalTo(expectedMatchingIdentifier));
+        this.expectedMatchElement = new ArrayList<>();
+        expectedMatchElement.add(MatchElement.Black);
+        expectedMatchElement.add(MatchElement.Black);
+        expectedMatchElement.add(MatchElement.White);
+        expectedMatchElement.add(MatchElement.White);
+        this.actualMatchElement = colorMatcher.match(humanColors, masterColors);
+        assertThat(actualMatchElement, equalTo(expectedMatchElement));
     }
 }

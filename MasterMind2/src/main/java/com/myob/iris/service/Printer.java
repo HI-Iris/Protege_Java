@@ -2,15 +2,15 @@ package com.myob.iris.service;
 
 import com.myob.iris.model.Constants;
 import com.myob.iris.model.GameState;
-import com.myob.iris.model.MatchingIdentifier;
+import com.myob.iris.model.MatchElement;
 
 import java.util.List;
 
 public class Printer {
-    public void printMatchingIdentifier(List<MatchingIdentifier> matchingIdentifier) {
-        if (matchingIdentifier.size() > 0) {
+    public void printMatchingIdentifier(List<MatchElement> matchElement) {
+        if (matchElement.size() > 0) {
             System.out.println(Constants.MSG_RESULT_CHECK);
-            System.out.println(composeIdentifiers(matchingIdentifier));
+            System.out.println(composeIdentifiers(matchElement));
         } else {
             System.out.println(Constants.MSG_COLOR_NO_MATCH);
         }
@@ -30,9 +30,9 @@ public class Printer {
         System.out.println(message);
     }
 
-    private String composeIdentifiers(List<MatchingIdentifier> matchingIdentifier) {
+    private String composeIdentifiers(List<MatchElement> matchElement) {
         StringBuilder builder = new StringBuilder();
-        for (MatchingIdentifier matchingId : matchingIdentifier) {
+        for (MatchElement matchingId : matchElement) {
             builder.append(matchingId).append(" ");
         }
         return builder.toString();

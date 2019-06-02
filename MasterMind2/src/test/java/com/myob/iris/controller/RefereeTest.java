@@ -1,6 +1,6 @@
 package com.myob.iris.controller;
 
-import com.myob.iris.model.MatchingIdentifier;
+import com.myob.iris.model.MatchElement;
 import org.junit.Test;
 
 
@@ -13,8 +13,8 @@ import static org.junit.Assert.assertTrue;
 
 public class RefereeTest {
     private Referee referee = new Referee();
-    private List<MatchingIdentifier> allBlack = Arrays.asList(MatchingIdentifier.Black, MatchingIdentifier.Black, MatchingIdentifier.Black, MatchingIdentifier.Black);
-    private List<MatchingIdentifier> notAllBlack = Arrays.asList(MatchingIdentifier.Black, MatchingIdentifier.White, MatchingIdentifier.White, MatchingIdentifier.Black);
+    private List<MatchElement> allBlack = Arrays.asList(MatchElement.Black, MatchElement.Black, MatchElement.Black, MatchElement.Black);
+    private List<MatchElement> notAllBlack = Arrays.asList(MatchElement.Black, MatchElement.White, MatchElement.White, MatchElement.Black);
 
     @Test
     public void givenAttempts59AndAllBlackReturnTrue() {

@@ -2,7 +2,7 @@ package com.myob.iris.service;
 
 import com.myob.iris.model.Color;
 import com.myob.iris.model.Constants;
-import com.myob.iris.model.MatchingIdentifier;
+import com.myob.iris.model.MatchElement;
 import com.myob.iris.model.Result;
 
 import java.util.List;
@@ -18,7 +18,7 @@ public class Validator {
         }
     }
 
-    public static Result validateMatchingIdentifierIsNotEmpty(List<MatchingIdentifier> matchingIdentifier) {
-        return matchingIdentifier.size() == 0 ? Result.invalid(Constants.MSG_COLOR_NO_MATCH) : Result.valid();
+    public static Result validateMatchingIdentifierIsNotEmpty(List<MatchElement> matchElement) {
+        return matchElement.size() == 0 ? Result.invalid(Constants.MSG_COLOR_NO_MATCH) : Result.valid();
     }
 }

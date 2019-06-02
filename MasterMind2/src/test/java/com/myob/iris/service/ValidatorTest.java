@@ -1,8 +1,7 @@
 package com.myob.iris.service;
 
 import com.myob.iris.model.Color;
-import com.myob.iris.model.Constants;
-import com.myob.iris.model.MatchingIdentifier;
+import com.myob.iris.model.MatchElement;
 import com.myob.iris.model.Result;
 import org.junit.Test;
 
@@ -10,7 +9,6 @@ import java.util.Arrays;
 
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ValidatorTest {
@@ -40,16 +38,16 @@ public class ValidatorTest {
 
     @Test
     public void givenEmptyMatchingIdentifierShouldReturnFalseWithReason() {
-        MatchingIdentifier[] matchingIdentifier = {};
-        Result result = Validator.validateMatchingIdentifierIsNotEmpty(Arrays.asList(matchingIdentifier));
+        MatchElement[] matchElement = {};
+        Result result = Validator.validateMatchingIdentifierIsNotEmpty(Arrays.asList(matchElement));
         assertFalse(result.isValid());
         assertTrue(result.getReason().isPresent());
     }
 
     @Test
     public void givenListOfMatchingIdentifierShouldReturnTrue() {
-        MatchingIdentifier[] matchingIdentifier = {MatchingIdentifier.White, MatchingIdentifier.Black};
-        Result result = Validator.validateMatchingIdentifierIsNotEmpty(Arrays.asList(matchingIdentifier));
+        MatchElement[] matchElement = {MatchElement.White, MatchElement.Black};
+        Result result = Validator.validateMatchingIdentifierIsNotEmpty(Arrays.asList(matchElement));
         assertTrue(result.isValid());
     }
 }

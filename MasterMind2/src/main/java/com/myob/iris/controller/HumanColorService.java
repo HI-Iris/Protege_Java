@@ -7,11 +7,11 @@ import com.myob.iris.service.Validator;
 import java.util.List;
 import java.util.Scanner;
 
-class HumanColorParser {
+class HumanColorService {
     private ColorBuilder humanColorBuilder;
     private InputSplitter inputSplitter;
 
-    HumanColorParser(ColorBuilder humanColorBuilder, InputSplitter inputSplitter) {
+    HumanColorService(ColorBuilder humanColorBuilder, InputSplitter inputSplitter) {
         this.humanColorBuilder = humanColorBuilder;
         this.inputSplitter = inputSplitter;
     }

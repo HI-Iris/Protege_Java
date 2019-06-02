@@ -1,23 +1,23 @@
 package com.myob.iris.controller;
 
 import com.myob.iris.model.Color;
-import com.myob.iris.model.MatchingIdentifier;
+import com.myob.iris.model.MatchElement;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ColorMatcher {
-    public List<MatchingIdentifier> match(List<Color> humanColors, List<Color> masterColors) {
-        List<MatchingIdentifier> matchingIdentifier = new ArrayList<>();
+    public List<MatchElement> match(List<Color> humanColors, List<Color> masterColors) {
+        List<MatchElement> matchElement = new ArrayList<>();
         for (int i = 0; i < humanColors.size(); i++) {
             if (isBothColorAndPositionCorrect(humanColors, masterColors, i)) {
-                matchingIdentifier.add(MatchingIdentifier.Black);
+                matchElement.add(MatchElement.Black);
             }
             if (isColorCorrectButPositionWrong(humanColors, masterColors, i)) {
-                matchingIdentifier.add(MatchingIdentifier.White);
+                matchElement.add(MatchElement.White);
             }
         }
-        return matchingIdentifier;
+        return matchElement;
     }
 
     private boolean isColorCorrectButPositionWrong(List<Color> humanColors, List<Color> masterColors, int indexOfList) {

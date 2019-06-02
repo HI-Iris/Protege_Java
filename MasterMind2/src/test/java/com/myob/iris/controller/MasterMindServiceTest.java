@@ -8,5 +8,11 @@ public class MasterMindServiceTest {
 
     @Test
     public void start() {
+        MasterMindService service = new MasterMindService();
+        service.start();
+
+
+
+
     }
 }

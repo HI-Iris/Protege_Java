@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MasterMindService {
     private MasterMindCore game;
-    private HumanColorParser human;
+    private HumanColorService humanColorService;
     private Printer printer;
     private GameState gameState;
 
@@ -20,7 +20,7 @@ public class MasterMindService {
         Referee referee = new Referee();
 
         this.game = new MasterMindCore(masterColorBuilder.buildColor(), referee, colorMatcher);
-        this.human = new HumanColorParser(humanColorBuilder, inputSplitter);
+        this.humanColorService = new HumanColorService(humanColorBuilder, inputSplitter);
         this.printer = new Printer();
         this.gameState = new GameState(false, 0);
     }
@@ -28,9 +28,9 @@ public class MasterMindService {
     public void start() {
         printer.printMessage(Constants.MSG_WELCOME);
         do {
-            List<Color> humanColors = human.getHumanColors();
-            List<MatchingIdentifier> roundResult = game.play(humanColors, gameState);
-            printer.printMatchingIdentifier(roundResult);
+            List<Color> humanColors = humanColorService.getHumanColors();
+            List<MatchElement> matchElement = game.play(humanColors, gameState);
+            printer.printMatchingIdentifier(matchElement);
             printer.printGameState(gameState);
         } while (!gameState.isWon());
     }
