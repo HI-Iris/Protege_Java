@@ -10,7 +10,7 @@ public class Printer {
     public void printMatchingIdentifier(List<MatchElement> matchElement) {
         if (matchElement.size() > 0) {
             System.out.println(Constants.MSG_RESULT_CHECK);
-            System.out.println(composeIdentifiers(matchElement));
+            System.out.println(composeMatchElement(matchElement));
         } else {
             System.out.println(Constants.MSG_COLOR_NO_MATCH);
         }
@@ -30,7 +30,7 @@ public class Printer {
         System.out.println(message);
     }
 
-    private String composeIdentifiers(List<MatchElement> matchElement) {
+    private String composeMatchElement(List<MatchElement> matchElement) {
         StringBuilder builder = new StringBuilder();
         for (MatchElement matchingId : matchElement) {
             builder.append(matchingId).append(" ");

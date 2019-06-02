@@ -37,7 +37,7 @@ public class ValidatorTest {
     }
 
     @Test
-    public void givenEmptyMatchingIdentifierShouldReturnFalseWithReason() {
+    public void givenEmptyMatchElementShouldReturnFalseWithReason() {
         MatchElement[] matchElement = {};
         Result result = Validator.validateMatchingIdentifierIsNotEmpty(Arrays.asList(matchElement));
         assertFalse(result.isValid());
@@ -45,7 +45,7 @@ public class ValidatorTest {
     }
 
     @Test
-    public void givenListOfMatchingIdentifierShouldReturnTrue() {
+    public void givenListOfMatchElementShouldReturnTrue() {
         MatchElement[] matchElement = {MatchElement.White, MatchElement.Black};
         Result result = Validator.validateMatchingIdentifierIsNotEmpty(Arrays.asList(matchElement));
         assertTrue(result.isValid());
