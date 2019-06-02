@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a390759-6e78-411c-83f9-c8c57692e915" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/myob/iris/controller/ColorMatcher.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/myob/iris/controller/ColorMatcher.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/myob/iris/controller/HumanColorParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/myob/iris/controller/MasterMindCore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/myob/iris/controller/MasterMindCore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/myob/iris/controller/MasterMindService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/myob/iris/controller/MasterMindService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/myob/iris/controller/Referee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/myob/iris/controller/Referee.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/myob/iris/model/MatchingIdentifier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/myob/iris/service/Printer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/myob/iris/service/Printer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/com/myob/iris/service/Validator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/com/myob/iris/service/Validator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myob/iris/service/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/myob/iris/service/Printer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/myob/iris/controller/MasterMindServiceTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/myob/iris/service/InputSplitterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/myob/iris/service/InputSplitterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/myob/iris/service/ValidatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/myob/iris/service/ValidatorTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="6a390759-6e78-411c-83f9-c8c57692e915" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -384,7 +370,7 @@
       <updated>1559110186437</updated>
       <workItem from="1559229046988" duration="3869000" />
       <workItem from="1559282868466" duration="1091000" />
-      <workItem from="1559450837352" duration="3955000" />
+      <workItem from="1559450837352" duration="4456000" />
     </task>
     <servers />
   </component>
@@ -394,7 +380,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8915000" />
+    <option name="totallyTimeSpent" value="9416000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -409,14 +395,14 @@
       <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.15506716" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3879668" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3879668" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
       <window_info anchor="bottom" id="Analysis" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.21090908" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.21058092" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="CheckStyle" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
