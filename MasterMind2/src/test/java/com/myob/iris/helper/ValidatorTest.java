@@ -1,4 +1,4 @@
-package com.myob.iris.service;
+package com.myob.iris.helper;
 
 import com.myob.iris.model.Color;
 import com.myob.iris.model.MatchElement;
@@ -39,7 +39,7 @@ public class ValidatorTest {
     @Test
     public void givenEmptyMatchElementShouldReturnFalseWithReason() {
         MatchElement[] matchElement = {};
-        Result result = Validator.validateMatchingIdentifierIsNotEmpty(Arrays.asList(matchElement));
+        Result result = Validator.validateMatchElementIsNotEmpty(Arrays.asList(matchElement));
         assertFalse(result.isValid());
         assertTrue(result.getReason().isPresent());
     }
@@ -47,7 +47,7 @@ public class ValidatorTest {
     @Test
     public void givenListOfMatchElementShouldReturnTrue() {
         MatchElement[] matchElement = {MatchElement.White, MatchElement.Black};
-        Result result = Validator.validateMatchingIdentifierIsNotEmpty(Arrays.asList(matchElement));
+        Result result = Validator.validateMatchElementIsNotEmpty(Arrays.asList(matchElement));
         assertTrue(result.isValid());
     }
 }

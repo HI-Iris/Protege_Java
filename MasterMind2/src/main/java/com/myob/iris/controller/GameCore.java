@@ -7,12 +7,12 @@ import com.myob.iris.model.Result;
 
 import java.util.List;
 
-class MasterMindCore {
+class GameCore {
     private final Referee referee;
     private final ColorMatcher matcher;
     private final List<Color> masterColors;
 
-    MasterMindCore(List<Color> masterColors, Referee referee, ColorMatcher matcher) {
+    GameCore(List<Color> masterColors, Referee referee, ColorMatcher matcher) {
         this.matcher = matcher;
         this.referee = referee;
         this.masterColors = masterColors;

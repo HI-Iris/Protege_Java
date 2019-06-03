@@ -1,4 +1,4 @@
-package com.myob.iris.service;
+package com.myob.iris.helper;
 
 import com.myob.iris.model.Constants;
 import com.myob.iris.model.GameState;
@@ -7,7 +7,7 @@ import com.myob.iris.model.MatchElement;
 import java.util.List;
 
 public class Printer {
-    public void printMatchingIdentifier(List<MatchElement> matchElement) {
+    public void printMatchElement(List<MatchElement> matchElement) {
         if (matchElement.size() > 0) {
             System.out.println(Constants.MSG_RESULT_CHECK);
             System.out.println(composeMatchElement(matchElement));
@@ -32,8 +32,8 @@ public class Printer {
 
     private String composeMatchElement(List<MatchElement> matchElement) {
         StringBuilder builder = new StringBuilder();
-        for (MatchElement matchingId : matchElement) {
-            builder.append(matchingId).append(" ");
+        for (MatchElement element : matchElement) {
+            builder.append(element).append(" ");
         }
         return builder.toString();
     }

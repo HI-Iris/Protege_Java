@@ -1,17 +1,17 @@
 package com.myob.iris.controller;
 
 import com.myob.iris.model.*;
-import com.myob.iris.service.InputSplitter;
-import com.myob.iris.service.Validator;
+import com.myob.iris.helper.InputSplitter;
+import com.myob.iris.helper.Validator;
 
 import java.util.List;
 import java.util.Scanner;
 
-class HumanColorService {
+class HumanService {
     private ColorBuilder humanColorBuilder;
     private InputSplitter inputSplitter;
 
-    HumanColorService(ColorBuilder humanColorBuilder, InputSplitter inputSplitter) {
+    HumanService(ColorBuilder humanColorBuilder, InputSplitter inputSplitter) {
         this.humanColorBuilder = humanColorBuilder;
         this.inputSplitter = inputSplitter;
     }

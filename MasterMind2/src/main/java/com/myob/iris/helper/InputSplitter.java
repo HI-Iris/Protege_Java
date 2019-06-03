@@ -1,4 +1,4 @@
-package com.myob.iris.service;
+package com.myob.iris.helper;
 
 import java.util.Scanner;
 

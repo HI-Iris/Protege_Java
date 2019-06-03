@@ -1,4 +1,4 @@
-package com.myob.iris.service;
+package com.myob.iris.helper;
 
 import org.junit.Test;
 

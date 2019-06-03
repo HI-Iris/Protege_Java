@@ -1,4 +1,4 @@
-package com.myob.iris.service;
+package com.myob.iris.helper;
 
 import com.myob.iris.model.Color;
 import com.myob.iris.model.Constants;
@@ -18,7 +18,7 @@ public class Validator {
         }
     }
 
-    public static Result validateMatchingIdentifierIsNotEmpty(List<MatchElement> matchElement) {
+    public static Result validateMatchElementIsNotEmpty(List<MatchElement> matchElement) {
         return matchElement.size() == 0 ? Result.invalid(Constants.MSG_COLOR_NO_MATCH) : Result.valid();
     }
 }

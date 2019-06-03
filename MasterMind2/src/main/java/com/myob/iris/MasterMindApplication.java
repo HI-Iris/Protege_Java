@@ -5,7 +5,7 @@ import com.myob.iris.controller.*;
 public class MasterMindApplication {
 
     public static void main(String[] args) {
-        MasterMindService masterMindService = new MasterMindService();
-        masterMindService.start();
-    }
+        GameService gameService = new GameService();
+        gameService.start();
+}
 }

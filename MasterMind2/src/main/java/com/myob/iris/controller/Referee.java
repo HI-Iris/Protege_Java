@@ -9,7 +9,7 @@ import java.util.List;
 public class Referee {
 
     public Result arbitrate(List<MatchElement> matchElement, int attempts) {
-        if (isAllMatchingIdentifierBlack(matchElement) && attempts <= Constants.MAX_ATTEMPT) {
+        if (isAllMatchElementBlack(matchElement) && attempts <= Constants.MAX_ATTEMPT) {
             return Result.valid();
         } else if (attempts > Constants.MAX_ATTEMPT) {
             return Result.invalid(Constants.ERROR_TRY_OVER_60);
@@ -17,15 +17,15 @@ public class Referee {
             return Result.invalid(Constants.MSG_NOT_WIN);
     }
 
-    private static boolean isAllMatchingIdentifierBlack(List<MatchElement> matchElement) {
-        return isAllMatchingIdentifierSame(matchElement) && isFirstColorInCorrectPosition(matchElement);
+    private static boolean isAllMatchElementBlack(List<MatchElement> matchElement) {
+        return isAllMatchElementSame(matchElement) && isFirstColorInCorrectPosition(matchElement);
     }
 
     private static boolean isFirstColorInCorrectPosition(List<MatchElement> matchElement) {
         return matchElement.get(0) == MatchElement.Black;
     }
 
-    private static boolean isAllMatchingIdentifierSame(List<MatchElement> matchElement) {
+    private static boolean isAllMatchElementSame(List<MatchElement> matchElement) {
         return matchElement.size() == Constants.NUM_OF_COLOR_IN_GAME && matchElement.stream().distinct().limit(2).count() <= 1;
     }
 
