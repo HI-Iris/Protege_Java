@@ -1,18 +1,19 @@
 package com.myob.iris.controller;
 
+import com.myob.iris.helper.HumanColorParser;
 import com.myob.iris.model.*;
 import com.myob.iris.helper.InputSplitter;
 import com.myob.iris.helper.Printer;
 
 import java.util.List;
 
-public class GameService {
+public class GameStarter {
     private GameCore game;
-    private HumanService humanService;
+    private HumanColorParser humanColorParser;
     private Printer printer;
     private GameState gameState;
 
-    public GameService() {
+    public GameStarter() {
         MasterColorBuilder masterColorBuilder = new MasterColorBuilder();
         HumanColorBuilder humanColorBuilder = new HumanColorBuilder();
         InputSplitter inputSplitter = new InputSplitter();
@@ -20,7 +21,7 @@ public class GameService {
         Referee referee = new Referee();
 
         this.game = new GameCore(masterColorBuilder.buildColor(), referee, colorMatcher);
-        this.humanService = new HumanService(humanColorBuilder, inputSplitter);
+        this.humanColorParser = new HumanColorParser(humanColorBuilder, inputSplitter);
         this.printer = new Printer();
         this.gameState = new GameState(false, 0);
     }
@@ -28,7 +29,7 @@ public class GameService {
     public void start() {
         printer.printMessage(Constants.MSG_WELCOME);
         do {
-            List<Color> humanColors = humanService.getHumanColors();
+            List<Color> humanColors = humanColorParser.getHumanColors();
             List<MatchElement> matchElement = game.play(humanColors, gameState);
             printer.printMatchElement(matchElement);
             printer.printGameState(gameState);
