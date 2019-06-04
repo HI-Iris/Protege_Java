@@ -1,9 +1,7 @@
 package com.myob.iris.controller;
 
-import com.myob.iris.helper.HumanColorParser;
+import com.myob.iris.helper.*;
 import com.myob.iris.model.*;
-import com.myob.iris.helper.InputSplitter;
-import com.myob.iris.helper.Printer;
 
 import java.util.List;
 

@@ -1,8 +1,6 @@
 package com.myob.iris.helper;
 
 import com.myob.iris.model.*;
-import com.myob.iris.helper.InputSplitter;
-import com.myob.iris.helper.Validator;
 
 import java.util.List;
 import java.util.Scanner;

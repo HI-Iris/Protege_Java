@@ -1,5 +1,7 @@
-package com.myob.iris.model;
+package com.myob.iris.helper;
 
+import com.myob.iris.model.Color;
+import com.myob.iris.model.Constants;
 import org.junit.Test;
 
 import java.util.List;

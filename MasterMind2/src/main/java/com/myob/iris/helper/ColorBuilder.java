@@ -1,4 +1,6 @@
-package com.myob.iris.model;
+package com.myob.iris.helper;
+
+import com.myob.iris.model.Color;
 
 import java.util.List;
 
